@@ -3,17 +3,17 @@ import { Zap, Scale, Handshake } from "lucide-react";
 
 const services = [
   {
-    icon: <Zap className="w-8 h-8 text-primary-foreground" />,
+    icon: <Zap className="w-8 h-8 text-primary" />,
     title: "Venture Acceleration",
     description: "More than capital, we provide the strategic firepower to scale ideas into industry-defining titans.",
   },
   {
-    icon: <Scale className="w-8 h-8 text-primary-foreground" />,
+    icon: <Scale className="w-8 h-8 text-primary" />,
     title: "Ecosystem Forging",
     description: "Connect with a curated network of pioneers, innovators, and market leaders to build your dynasty.",
   },
   {
-    icon: <Handshake className="w-8 h-8 text-primary-foreground" />,
+    icon: <Handshake className="w-8 h-8 text-primary" />,
     title: "Strategic Partnerships",
     description: "We help you forge strategic partnerships that open new markets and create lasting value.",
   },
@@ -33,7 +33,7 @@ export function Services() {
           {services.map((service) => (
             <Card key={service.title} className="text-center border shadow-sm hover:shadow-xl transition-shadow duration-300 bg-card">
               <CardHeader>
-                <div className="mx-auto bg-primary p-4 rounded-full w-fit">
+                <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
                   {service.icon}
                 </div>
                 <CardTitle className="text-2xl pt-4">{service.title}</CardTitle>

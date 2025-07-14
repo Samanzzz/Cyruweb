@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Literata } from "next/font/google";
+import { Inter, Literata } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const literata = Literata({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${literata.variable} font-serif antialiased`}>
+      <body className={`${inter.variable} ${literata.variable} font-sans antialiased`}>
         {children}
         <Toaster />
       </body>

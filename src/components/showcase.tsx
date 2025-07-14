@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const unicornStartups = [
@@ -31,7 +31,7 @@ const unicornStartups = [
 
 export function Showcase() {
   return (
-    <section id="showcase" className="py-16 sm:py-24">
+    <section id="showcase" className="py-16 sm:py-24 bg-white">
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Unicorn Startups</h2>
@@ -41,25 +41,23 @@ export function Showcase() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {unicornStartups.map((startup, index) => (
-            <div key={index}>
-              <Card className="overflow-hidden h-full flex flex-col bg-card border-border hover:border-primary/50 transition-colors">
-                <CardHeader className="p-0">
-                  <Image
-                    src={startup.image}
-                    alt={`Logo for ${startup.name}`}
-                    width={600}
-                    height={400}
-                    className="w-full h-48 object-cover"
-                    data-ai-hint={startup.hint}
-                  />
-                </CardHeader>
-                <CardContent className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-semibold mb-2">{startup.name}</h3>
-                    <p className="text-muted-foreground flex-1 mb-4">{startup.description}</p>
-                    <Button variant="outline" className="mt-auto w-full">Learn More</Button>
-                </CardContent>
-              </Card>
-            </div>
+            <Card key={index} className="overflow-hidden h-full flex flex-col bg-card border rounded-lg shadow-md hover:shadow-xl transition-shadow">
+              <CardHeader className="p-0">
+                <Image
+                  src={startup.image}
+                  alt={`Logo for ${startup.name}`}
+                  width={600}
+                  height={400}
+                  className="w-full h-48 object-cover"
+                  data-ai-hint={startup.hint}
+                />
+              </CardHeader>
+              <CardContent className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-2">{startup.name}</h3>
+                  <p className="text-muted-foreground flex-1 mb-4">{startup.description}</p>
+                  <Button variant="outline" className="mt-auto w-full hover:bg-primary hover:text-primary-foreground">Learn More</Button>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

@@ -26,7 +26,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="transition-colors hover:text-foreground/80 text-foreground/60"
+                  className="transition-colors hover:text-primary text-foreground/60"
                 >
                   {link.label}
                 </Link>
@@ -51,7 +51,7 @@ export function Header() {
                            <Link
                               key={link.href}
                               href={link.href}
-                              className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors"
+                              className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                             >
                               {link.label}
                             </Link>

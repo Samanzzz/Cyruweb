@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function Goal() {
   return (
-    <section id="goal" className="py-16 sm:py-24">
+    <section id="goal" className="py-16 sm:py-24 bg-secondary">
       <div className="container px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -21,9 +22,14 @@ export function Goal() {
              <Button size="lg" className="mt-8">Book Your Appointment Now</Button>
           </div>
           <div className="order-1 lg:order-2">
-             <div className="bg-muted rounded-lg p-8 h-full flex items-center justify-center">
-                <h3 className="text-2xl font-bold text-center text-secondary-foreground">Get involved with CyruTech</h3>
-             </div>
+            <Image 
+              src="https://placehold.co/600x600.png"
+              alt="Team discussing strategy"
+              width={600}
+              height={600}
+              className="rounded-lg shadow-lg"
+              data-ai-hint="team strategy"
+            />
           </div>
         </div>
       </div>
