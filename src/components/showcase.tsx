@@ -46,9 +46,9 @@ export function Showcase() {
     <section id="showcase" className="py-16 sm:py-24">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="font-headline text-3xl font-bold text-primary sm:text-4xl">Our Unicorn Showcase</h2>
+          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Constellation of Unicorns</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            A selection of industry-defining companies we've backed.
+            A glimpse into the future, forged by the industry-defining companies we've backed.
           </p>
         </div>
         <Carousel
@@ -62,7 +62,7 @@ export function Showcase() {
             {unicornStartups.map((startup, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <Card className="overflow-hidden h-full flex flex-col">
+                  <Card className="overflow-hidden h-full flex flex-col bg-card border-border hover:border-primary/50 transition-colors">
                     <CardHeader className="p-0">
                       <Image
                         src={startup.image}
@@ -74,7 +74,7 @@ export function Showcase() {
                       />
                     </CardHeader>
                     <CardContent className="p-6 flex-1 flex flex-col">
-                        <CardTitle className="font-headline text-xl mb-2">{startup.name}</CardTitle>
+                        <CardTitle className="text-xl mb-2">{startup.name}</CardTitle>
                         <p className="text-muted-foreground flex-1">{startup.description}</p>
                     </CardContent>
                   </Card>

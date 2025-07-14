@@ -1,16 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Megaphone } from "lucide-react";
+import { Code, Megaphone, Zap, Scale } from "lucide-react";
 
 const services = [
   {
-    icon: <Code className="w-8 h-8 text-primary" />,
-    title: "Custom Tech Solutions",
-    description: "From concept to launch, we provide bespoke technology development to bring your vision to life.",
+    icon: <Zap className="w-8 h-8 text-primary" />,
+    title: "Venture Acceleration",
+    description: "More than capital, we provide the strategic firepower to scale ideas into industry-defining titans.",
   },
   {
-    icon: <Megaphone className="w-8 h-8 text-primary" />,
-    title: "Streamlined Marketing",
-    description: "Strategic marketing and branding that cuts through the noise and delivers measurable results.",
+    icon: <Scale className="w-8 h-8 text-primary" />,
+    title: "Ecosystem Forging",
+    description: "Connect with a curated network of pioneers, innovators, and market leaders to build your dynasty.",
   },
 ];
 
@@ -19,14 +19,14 @@ export function Services() {
     <section id="services" className="py-16 sm:py-24 bg-secondary">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Expertise</h2>
+          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Catalyst Platform</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            We provide more than just capital. We're partners in growth.
+            We are architects of growth, providing the tools and network to build empires.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service) => (
-            <Card key={service.title} className="text-center border shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <Card key={service.title} className="text-center border shadow-sm hover:shadow-xl transition-shadow duration-300 bg-card">
               <CardHeader>
                 <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
                   {service.icon}

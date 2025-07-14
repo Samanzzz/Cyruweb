@@ -96,7 +96,7 @@ export default function BootcampPage() {
             {bootcamps.map((bootcamp) => (
               <Dialog key={bootcamp.title}>
                 <DialogTrigger asChild>
-                  <Card className="flex flex-col overflow-hidden border shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
+                  <Card className="flex flex-col overflow-hidden border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 cursor-pointer h-full bg-card">
                       <CardHeader>
                           <div className="flex items-start justify-between">
                               <div className="bg-primary/10 p-3 rounded-full mb-4">
