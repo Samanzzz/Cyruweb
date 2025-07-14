@@ -1,6 +1,8 @@
+
 "use client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
   const containerVariants = {
@@ -48,8 +50,12 @@ export function Hero() {
           variants={itemVariants}
           className="mt-10 flex flex-col sm:flex-row items-center justify-start gap-4"
         >
-          <Button size="lg">Ignite Your Vision</Button>
-          <Button size="lg" variant="outline">Explore Our Manifesto</Button>
+          <Link href="/ignite" passHref>
+            <Button size="lg">Ignite Your Vision</Button>
+          </Link>
+          <Link href="/unicorns" passHref>
+            <Button size="lg" variant="outline">Explore Our Manifesto</Button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>

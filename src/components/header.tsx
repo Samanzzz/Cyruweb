@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -7,6 +8,7 @@ import { DemoForm } from "./demo-form";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/ignite", label: "Ignite" },
   { href: "/bootcamp", label: "Bootcamp" },
   { href: "/unicorns", label: "Unicorns" },
   { href: "/careers", label: "Careers" },
