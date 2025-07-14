@@ -34,17 +34,18 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
     : 'text-secondary-foreground';
 
   const animationClass = direction === 'left' ? 'animate-marquee' : 'animate-marquee-reverse';
-  const animationClass2 = direction === 'left' ? 'animate-marquee2' : 'animate-marquee2-reverse';
 
   return (
-    <div className={cn("relative py-4", containerClasses)}>
-      <div className="relative w-full flex overflow-hidden">
-        <p className={cn("whitespace-nowrap text-xl font-medium font-serif", textClasses, animationClass)}>
-          {marqueeText}
-        </p>
-        <p className={cn("absolute top-0 whitespace-nowrap text-xl font-medium font-serif", textClasses, animationClass2)}>
+    <div className={cn("relative flex w-full overflow-hidden", containerClasses)}>
+      <div className={cn("py-4 flex-shrink-0 flex items-center", animationClass)}>
+          <p className={cn("whitespace-nowrap text-xl font-serif", textClasses)}>
             {marqueeText}
-        </p>
+          </p>
+      </div>
+      <div className={cn("absolute top-0 py-4 flex-shrink-0 flex items-center", animationClass)}>
+          <p className={cn("whitespace-nowrap text-xl font-serif", textClasses)}>
+            {marqueeText}
+          </p>
       </div>
     </div>
   );
