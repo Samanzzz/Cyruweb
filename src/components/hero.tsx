@@ -38,7 +38,7 @@ export function Hero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          className="text-4xl font-serif font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
         >
           Pioneering Venture Capital for Groundbreaking Tech Innovations
         </motion.h1>
