@@ -35,12 +35,12 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
 
   return (
     <div className={cn("relative flex w-full overflow-hidden", containerClasses)}>
-      <div className={cn("py-4 flex-shrink-0 flex items-center", animationClass)}>
+      <div className={cn("py-4 flex-shrink-0 flex items-center transform-gpu translate-z-0", animationClass)}>
           <p className={cn("whitespace-nowrap text-xl font-serif", textClasses)}>
             {marqueeText}
           </p>
       </div>
-      <div className={cn("absolute top-0 py-4 flex-shrink-0 flex items-center", animationClass2)}>
+      <div className={cn("absolute top-0 py-4 flex-shrink-0 flex items-center transform-gpu translate-z-0", animationClass2)}>
           <p className={cn("whitespace-nowrap text-xl font-serif", textClasses)}>
             {marqueeText}
           </p>
