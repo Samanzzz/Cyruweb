@@ -11,7 +11,7 @@ import { ApplicationForm } from "@/components/application-form";
 const jobOpenings = [
   {
     title: "Senior Frontend Engineer",
-    location: "San Diego, CA (Hybrid)",
+    location: "Remote",
     type: "Full-time",
     description: "We are seeking an experienced Frontend Engineer to build and scale our user-facing applications. You will work with a modern tech stack and have a direct impact on our product.",
     responsibilities: [
@@ -29,7 +29,7 @@ const jobOpenings = [
   },
   {
     title: "Product Manager, AI/ML",
-    location: "New York, NY (On-site)",
+    location: "Remote",
     type: "Full-time",
     description: "Drive the product vision and strategy for our AI-powered features. You will work closely with engineering, design, and data science to deliver innovative solutions.",
      responsibilities: [
@@ -47,7 +47,7 @@ const jobOpenings = [
   },
   {
     title: "Venture Capital Analyst",
-    location: "San Francisco, CA (On-site)",
+    location: "Remote",
     type: "Full-time",
     description: "Join our investment team to identify, evaluate, and support the next generation of tech unicorns. This is a unique opportunity to get in on the ground floor of a fast-paced VC.",
      responsibilities: [
