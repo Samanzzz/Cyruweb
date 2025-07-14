@@ -1,11 +1,31 @@
+"use client";
 import { ContactForm } from "./contact-form";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const locations = ["San Diego", "New York", "Miami", "Los Angeles", "San Francisco"];
 
 export function Contact() {
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-white">
+    <motion.section
+      id="contact"
+      className="py-16 sm:py-24 bg-white"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">CONTACT US</h2>
@@ -45,6 +65,6 @@ export function Contact() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

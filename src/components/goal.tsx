@@ -1,8 +1,29 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function Goal() {
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <section id="goal" className="py-16 sm:py-24 bg-white">
+    <motion.section
+      id="goal"
+      className="py-16 sm:py-24 bg-white"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="container px-4">
         <div className="max-w-4xl mx-auto bg-card text-card-foreground rounded-lg shadow-xl p-8 sm:p-12 lg:p-16">
           <div className="text-left">
@@ -23,6 +44,6 @@ export function Goal() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

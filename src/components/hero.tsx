@@ -1,20 +1,57 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section className="py-24 sm:py-32 lg:py-40 bg-white">
-      <div className="container px-4 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+      <motion.div
+        className="container px-4 text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          variants={itemVariants}
+          className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+        >
           Pioneering Venture Capital for Groundbreaking Tech Innovations
-        </h1>
-        <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground sm:text-xl">
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground sm:text-xl"
+        >
           Custom Tech Solutions and Streamlined Marketing
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        </motion.p>
+        <motion.div
+          variants={itemVariants}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
           <Button size="lg">Ignite Your Vision</Button>
           <Button size="lg" variant="outline">Explore Our Manifesto</Button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
