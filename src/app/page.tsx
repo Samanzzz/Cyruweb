@@ -52,7 +52,7 @@ export default async function Home() {
       <Header />
       <main className="flex-1">
         <Hero headlines={headlines} />
-        <NewsMarquee headlines={headlines} variant="dark" />
+        <NewsMarquee headlines={headlines} variant="dark" direction="right" />
         <Services />
         <Showcase />
         <Goal />

@@ -1,13 +1,15 @@
 
 "use client";
 import React, { useState, useEffect } from 'react';
+import { cn } from "@/lib/utils";
 
 interface NewsMarqueeProps {
   headlines: string[];
   variant?: 'light' | 'dark';
+  direction?: 'left' | 'right';
 }
 
-export function NewsMarquee({ headlines, variant = 'light' }: NewsMarqueeProps) {
+export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }: NewsMarqueeProps) {
   const [marqueeText, setMarqueeText] = useState("");
 
   useEffect(() => {
@@ -24,20 +26,23 @@ export function NewsMarquee({ headlines, variant = 'light' }: NewsMarqueeProps) 
   }, [headlines]);
   
   const containerClasses = variant === 'dark' 
-    ? 'bg-gray-800' 
+    ? 'bg-primary' 
     : 'bg-secondary';
     
   const textClasses = variant === 'dark' 
-    ? 'text-white' 
+    ? 'text-primary-foreground' 
     : 'text-secondary-foreground';
 
+  const animationClass = direction === 'left' ? 'animate-marquee' : 'animate-marquee-reverse';
+  const animationClass2 = direction === 'left' ? 'animate-marquee2' : 'animate-marquee2-reverse';
+
   return (
-    <div className={`relative py-4 ${containerClasses}`}>
+    <div className={cn("relative py-4", containerClasses)}>
       <div className="relative w-full flex overflow-hidden">
-        <p className={`animate-marquee whitespace-nowrap text-xl font-medium ${textClasses}`}>
+        <p className={cn("whitespace-nowrap text-xl font-medium", textClasses, animationClass)}>
           {marqueeText}
         </p>
-        <p className={`absolute top-0 animate-marquee2 whitespace-nowrap text-xl font-medium ${textClasses}`}>
+        <p className={cn("absolute top-0 whitespace-nowrap text-xl font-medium", textClasses, animationClass2)}>
             {marqueeText}
         </p>
       </div>
