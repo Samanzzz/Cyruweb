@@ -1,13 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const unicornStartups = [
   {
@@ -46,41 +39,29 @@ export function Showcase() {
             From Vision to Unicorn: Our Journey. We have a team of developers who will identify your needs and provide you with solutions for them.
           </p>
         </div>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <CarouselContent>
-            {unicornStartups.map((startup, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="overflow-hidden h-full flex flex-col bg-card border-border hover:border-primary/50 transition-colors">
-                    <CardHeader className="p-0">
-                      <Image
-                        src={startup.image}
-                        alt={`Logo for ${startup.name}`}
-                        width={600}
-                        height={400}
-                        className="w-full h-48 object-cover"
-                        data-ai-hint={startup.hint}
-                      />
-                    </CardHeader>
-                    <CardContent className="p-6 flex-1 flex flex-col">
-                        <h3 className="text-xl font-semibold mb-2">{startup.name}</h3>
-                        <p className="text-muted-foreground flex-1 mb-4">{startup.description}</p>
-                        <Button variant="outline" className="mt-auto w-full">Learn More</Button>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {unicornStartups.map((startup, index) => (
+            <div key={index}>
+              <Card className="overflow-hidden h-full flex flex-col bg-card border-border hover:border-primary/50 transition-colors">
+                <CardHeader className="p-0">
+                  <Image
+                    src={startup.image}
+                    alt={`Logo for ${startup.name}`}
+                    width={600}
+                    height={400}
+                    className="w-full h-48 object-cover"
+                    data-ai-hint={startup.hint}
+                  />
+                </CardHeader>
+                <CardContent className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-xl font-semibold mb-2">{startup.name}</h3>
+                    <p className="text-muted-foreground flex-1 mb-4">{startup.description}</p>
+                    <Button variant="outline" className="mt-auto w-full">Learn More</Button>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
