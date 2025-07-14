@@ -1,3 +1,4 @@
+
 "use client";
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,22 +10,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ACCEPTED_FILE_TYPES = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
-
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   phone: z.string().optional(),
   jobTitle: z.string(),
-  resume: z
-    .any()
-    .refine((files) => files?.length == 1, "Resume is required.")
-    .refine((files) => files?.[0]?.size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
-    .refine(
-      (files) => ACCEPTED_FILE_TYPES.includes(files?.[0]?.type),
-      ".pdf, .doc, and .docx files are accepted."
-    ),
+  resume: z.string().url({ message: "Please enter a valid Google Drive link." }),
   coverLetter: z.string().optional(),
 });
 
@@ -41,6 +32,7 @@ export function ApplicationForm({ jobTitle }: ApplicationFormProps) {
       email: "",
       phone: "",
       jobTitle: jobTitle,
+      resume: "",
       coverLetter: "",
     },
   });
@@ -51,11 +43,7 @@ export function ApplicationForm({ jobTitle }: ApplicationFormProps) {
     formData.append("subject", `New Application for ${values.jobTitle}`);
 
     Object.entries(values).forEach(([key, value]) => {
-      if (key === 'resume') {
-        formData.append(key, value[0]);
-      } else {
-        formData.append(key, value);
-      }
+      formData.append(key, value);
     });
 
     try {
@@ -139,12 +127,11 @@ export function ApplicationForm({ jobTitle }: ApplicationFormProps) {
             name="resume"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Resume/CV*</FormLabel>
+                <FormLabel>Resume/CV (Google Drive Link)*</FormLabel>
                 <FormControl>
                     <Input 
-                        type="file" 
-                        accept=".pdf,.doc,.docx"
-                        onChange={(e) => field.onChange(e.target.files)}
+                        placeholder="https://docs.google.com/document/d/..."
+                        {...field} 
                     />
                 </FormControl>
                 <FormMessage />
