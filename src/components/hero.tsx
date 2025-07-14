@@ -1,10 +1,30 @@
 
 "use client";
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export function Hero() {
+interface HeroProps {
+  headlines: string[];
+}
+
+export function Hero({ headlines }: HeroProps) {
+  const [marqueeText, setMarqueeText] = useState("");
+
+  useEffect(() => {
+    if (headlines && headlines.length > 0) {
+      // Create a long string of headlines separated by a visual element
+      const text = headlines.join("  •  ") + "  •  ";
+      // Repeat it to ensure it's long enough for a smooth marquee effect
+      setMarqueeText(text.repeat(5));
+    } else {
+      // Fallback text if headlines fail to load
+      const fallbackText = "Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor · Series A · Growth Hacking · Tech · Entrepreneurship · Exit Strategy · Pitch Deck · Due Diligence · Term Sheet · Burn Rate ·";
+      setMarqueeText(fallbackText.repeat(5));
+    }
+  }, [headlines]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,8 +45,6 @@ export function Hero() {
       },
     },
   };
-
-  const marqueeWords = "Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor · Series A · Growth Hacking · Tech · Entrepreneurship · Exit Strategy · Pitch Deck · Due Diligence · Term Sheet · Burn Rate ·".repeat(5);
 
   return (
     <section className="py-24 sm:py-32 lg:pt-40 bg-white overflow-hidden">
@@ -64,10 +82,10 @@ export function Hero() {
         <div className="absolute inset-0 bg-secondary"></div>
         <div className="relative w-full flex overflow-hidden">
           <p className="animate-marquee whitespace-nowrap text-xl text-secondary-foreground font-medium">
-            {marqueeWords}
+            {marqueeText}
           </p>
            <p className="absolute top-0 animate-marquee2 whitespace-nowrap text-xl text-secondary-foreground font-medium">
-             {marqueeWords}
+             {marqueeText}
            </p>
         </div>
       </div>
