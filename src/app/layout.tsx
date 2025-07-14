@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "CyruTech Capital",
   description: "Pioneering Venture Capital for Groundbreaking Tech Innovations",
   icons: {
-    icon: 'public/Cy-logo.png',
+    icon: 'public\favicon.ico',
   },
 };
 
