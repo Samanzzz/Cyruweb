@@ -5,10 +5,8 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/bootcamp", label: "Bootcamp" },
   { href: "/unicorns", label: "Unicorns" },
-  { href: "/team", label: "Team" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
   { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
