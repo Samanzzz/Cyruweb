@@ -139,7 +139,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full font-bold bg-accent hover:bg-accent/90 text-accent-foreground">
+        <Button type="submit" className="w-full">
           Send Inquiry
         </Button>
       </form>

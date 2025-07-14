@@ -96,15 +96,15 @@ export default function BootcampPage() {
             {bootcamps.map((bootcamp) => (
               <Dialog key={bootcamp.title}>
                 <DialogTrigger asChild>
-                  <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
+                  <Card className="flex flex-col overflow-hidden border shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
                       <CardHeader>
                           <div className="flex items-start justify-between">
-                              <div className="bg-secondary p-3 rounded-full mb-4">
+                              <div className="bg-primary/10 p-3 rounded-full mb-4">
                                   {bootcamp.icon}
                               </div>
                               <Badge variant={bootcamp.category === 'Management' ? 'destructive' : 'secondary'}>{bootcamp.category}</Badge>
                           </div>
-                          <CardTitle className="font-headline text-2xl">{bootcamp.title}</CardTitle>
+                          <CardTitle className="text-2xl">{bootcamp.title}</CardTitle>
                       </CardHeader>
                       <CardContent className="flex-1 flex flex-col justify-between">
                         <CardDescription className="mb-4">{bootcamp.description}</CardDescription>
@@ -115,7 +115,7 @@ export default function BootcampPage() {
                 <DialogContent className="sm:max-w-[625px]">
                   <DialogHeader>
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="bg-secondary p-3 rounded-full">
+                        <div className="bg-primary/10 p-3 rounded-full">
                             {bootcamp.icon}
                         </div>
                         <DialogTitle className="text-2xl font-bold text-primary">{bootcamp.title}</DialogTitle>
@@ -143,7 +143,7 @@ export default function BootcampPage() {
                     </div>
                   </div>
                    <div className="mt-6 text-center">
-                        <Button className="font-bold bg-accent hover:bg-accent/90 text-accent-foreground">Enroll Now</Button>
+                        <Button>Enroll Now</Button>
                     </div>
                 </DialogContent>
               </Dialog>

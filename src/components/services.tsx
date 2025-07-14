@@ -16,22 +16,22 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-16 sm:py-24 bg-primary/5">
+    <section id="services" className="py-16 sm:py-24 bg-secondary">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="font-headline text-3xl font-bold text-primary sm:text-4xl">Our Expertise</h2>
+          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Expertise</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             We provide more than just capital. We're partners in growth.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service) => (
-            <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={service.title} className="text-center border shadow-sm hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <div className="mx-auto bg-secondary p-4 rounded-full w-fit">
+                <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
                   {service.icon}
                 </div>
-                <CardTitle className="font-headline text-2xl pt-4">{service.title}</CardTitle>
+                <CardTitle className="text-2xl pt-4">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{service.description}</p>
