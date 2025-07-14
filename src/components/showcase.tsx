@@ -6,25 +6,25 @@ const unicornStartups = [
   {
     name: "SullDog Company",
     description: "Specializes in elevating businesses online with bespoke web development and design services.",
-    image: "https://placehold.co/600x400.png",
+    image: "/assets/sulldog-company.png",
     hint: "dog logo",
   },
   {
     name: "Cloud Impala",
     description: "Provides data analytics solutions specifically designed for farmers and corporations to optimize their operations.",
-    image: "https://placehold.co/600x400.png",
+    image: "/assets/cloud-impala.png",
     hint: "cloud analytics",
   },
   {
     name: "Feed Slack",
     description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
-    image: "https://placehold.co/600x400.png",
+    image: "/assets/feed-slack.png",
     hint: "feedback chat",
   },
   {
     name: "AdverCal",
     description: "A marketing agency that offers customized marketing strategies with the unique option of direct executive collaboration.",
-    image: "https://placehold.co/600x400.png",
+    image: "/assets/advercal.png",
     hint: "marketing chart",
   },
 ];
