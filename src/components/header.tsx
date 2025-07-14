@@ -16,7 +16,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="text-xl font-bold text-primary-foreground mr-6">
+          <Link href="/" className="text-xl font-bold text-foreground mr-6">
             CyruTech
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">

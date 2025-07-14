@@ -87,7 +87,7 @@ export default function BootcampPage() {
       <Header />
       <main className="flex-1 container py-12">
         <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">CyruTech Bootcamp</h1>
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">CyruTech Bootcamp</h1>
             <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
               Upskill and innovate with our expert-led tech bootcamps. Your journey into deep tech starts here.
             </p>
@@ -99,7 +99,7 @@ export default function BootcampPage() {
                   <Card className="flex flex-col overflow-hidden border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 cursor-pointer h-full bg-card">
                       <CardHeader>
                           <div className="flex items-start justify-between">
-                              <div className="bg-primary/10 p-3 rounded-full mb-4">
+                              <div className="bg-primary p-3 rounded-full mb-4">
                                   {bootcamp.icon}
                               </div>
                               <Badge variant={bootcamp.category === 'Management' ? 'destructive' : 'secondary'}>{bootcamp.category}</Badge>
@@ -115,10 +115,10 @@ export default function BootcampPage() {
                 <DialogContent className="sm:max-w-[625px]">
                   <DialogHeader>
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="bg-primary/10 p-3 rounded-full">
+                        <div className="bg-primary p-3 rounded-full">
                             {bootcamp.icon}
                         </div>
-                        <DialogTitle className="text-2xl font-bold text-primary-foreground">{bootcamp.title}</DialogTitle>
+                        <DialogTitle className="text-2xl font-bold text-foreground">{bootcamp.title}</DialogTitle>
                     </div>
                   </DialogHeader>
                   <div className="space-y-4">

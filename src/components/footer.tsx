@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-secondary">
       <div className="container py-8 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <a href="#" className="text-xl font-bold text-primary-foreground">
+            <a href="#" className="text-xl font-bold text-secondary-foreground">
               CyruTech
             </a>
           <div className="text-center md:text-left">

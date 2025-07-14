@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="py-24 sm:py-32 lg:py-40">
       <div className="container px-4 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Architecting the Unthinkable. Funding the Future.
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
