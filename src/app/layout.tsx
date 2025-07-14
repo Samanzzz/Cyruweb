@@ -10,7 +10,12 @@ export const metadata: Metadata = {
   title: "CyruTech Capital",
   description: "Pioneering Venture Capital for Groundbreaking Tech Innovations",
   icons: {
-    icon: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/Cy-logo.png",
+    icon: [
+      {
+        url: 'https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/Cy-logo.png',
+        href: 'https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/Cy-logo.png',
+      },
+    ],
   },
 };
 
