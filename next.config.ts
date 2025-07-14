@@ -1,7 +1,15 @@
 import type {NextConfig} from 'next';
 
+// Replace `my-repo-name` with the name of your GitHub repository.
+const repoName = 'my-repo-name';
+
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  // IMPORTANT: Replace `my-repo-name` with your repository name below.
+  basePath: isGithubActions ? `/${repoName}` : '',
+  assetPrefix: isGithubActions ? `/${repoName}/` : '',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +17,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true, // Required for static export.
     remotePatterns: [
       {
         protocol: 'https',
