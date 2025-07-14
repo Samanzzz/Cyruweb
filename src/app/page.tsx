@@ -8,44 +8,23 @@ import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { NewsMarquee } from "@/components/news-marquee";
 
-interface Article {
-  title: string;
-}
+// Static headlines to replace the live API call for GitHub Pages deployment.
+const staticHeadlines = [
+  "Tech Startups See Record Funding in Q2",
+  "Venture Capital Firms Focus on AI and Machine Learning",
+  "The Rise of Sustainable Tech Innovations",
+  "Key Trends in the SaaS Industry for 2024",
+  "Biotech Companies Secure Major Investment Rounds",
+  "How Web3 is Shaping the Future of the Internet",
+  "Fintech Disruptors Challenge Traditional Banking",
+  "Cybersecurity Becomes a Top Priority for Investors",
+  "The Future of Work: Remote Collaboration Tools Surge",
+  "E-commerce Growth Continues to Accelerate Post-Pandemic"
+];
 
-// Fetches headlines from NewsAPI
-async function getLatestNewsHeadlines(): Promise<string[]> {
-  const apiKey = 'c136fd4db02b48ac8c6911f3edc4c506';
-  // More relevant query for a VC firm
-  const query = 'startup OR technology OR "venture capital"';
-  const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=popularity&language=en&apiKey=${apiKey}`;
-
-  try {
-    const response = await fetch(url, {
-      cache: 'no-store' // Fetch fresh data on every request
-    });
-
-    if (!response.ok) {
-      // NewsAPI might return a 4xx or 5xx error with a JSON body
-      const errorData = await response.json();
-      throw new Error(`Failed to fetch news: ${response.status} - ${errorData.message}`);
-    }
-
-    const data = await response.json();
-
-    if (data.status !== 'ok') {
-      throw new Error(`NewsAPI returned an error: ${data.message}`);
-    }
-
-    // Extract titles from the articles
-    return data.articles.map((article: Article) => article.title);
-  } catch (error) {
-    console.error("Error fetching or parsing news from NewsAPI:", error);
-    return []; // Return empty array on error
-  }
-}
 
 export default async function Home() {
-  const headlines = await getLatestNewsHeadlines();
+  const headlines = staticHeadlines;
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
