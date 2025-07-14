@@ -1,30 +1,16 @@
 
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { NewsMarquee } from './news-marquee';
 
 interface HeroProps {
   headlines: string[];
 }
 
 export function Hero({ headlines }: HeroProps) {
-  const [marqueeText, setMarqueeText] = useState("");
-
-  useEffect(() => {
-    if (headlines && headlines.length > 0) {
-      // Create a long string of headlines separated by a visual element
-      const text = headlines.join("  •  ") + "  •  ";
-      // Repeat it to ensure it's long enough for a smooth marquee effect
-      setMarqueeText(text.repeat(5));
-    } else {
-      // Fallback text if headlines fail to load
-      const fallbackText = "Latest news headlines are currently unavailable. • Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor ·";
-      setMarqueeText(fallbackText.repeat(5));
-    }
-  }, [headlines]);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,7 +33,7 @@ export function Hero({ headlines }: HeroProps) {
   };
 
   return (
-    <section className="py-24 sm:py-32 lg:pt-40 bg-white overflow-hidden">
+    <section className="pt-24 sm:pt-32 lg:pt-40 bg-white overflow-hidden">
       <motion.div
         className="container px-4 text-left"
         variants={containerVariants}
@@ -78,17 +64,9 @@ export function Hero({ headlines }: HeroProps) {
           </Link>
         </motion.div>
       </motion.div>
-       <div className="relative mt-20 sm:mt-24 py-4">
-        <div className="absolute inset-0 bg-secondary"></div>
-        <div className="relative w-full flex overflow-hidden">
-          <p className="animate-marquee whitespace-nowrap text-xl text-secondary-foreground font-medium">
-            {marqueeText}
-          </p>
-           <p className="absolute top-0 animate-marquee2 whitespace-nowrap text-xl text-secondary-foreground font-medium">
-             {marqueeText}
-           </p>
-        </div>
-      </div>
+       <div className="mt-20 sm:mt-24">
+         <NewsMarquee headlines={headlines} variant="light" />
+       </div>
     </section>
   );
 }

@@ -6,6 +6,7 @@ import { Showcase } from "@/components/showcase";
 import { Goal } from "@/components/goal";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { NewsMarquee } from "@/components/news-marquee";
 
 interface Article {
   title: string;
@@ -51,6 +52,7 @@ export default async function Home() {
       <Header />
       <main className="flex-1">
         <Hero headlines={headlines} />
+        <NewsMarquee headlines={headlines} variant="dark" />
         <Services />
         <Showcase />
         <Goal />
