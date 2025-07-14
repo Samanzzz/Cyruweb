@@ -39,10 +39,10 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
   return (
     <div className={cn("relative py-4", containerClasses)}>
       <div className="relative w-full flex overflow-hidden">
-        <p className={cn("whitespace-nowrap text-xl font-medium", textClasses, animationClass)}>
+        <p className={cn("whitespace-nowrap text-xl font-medium font-serif", textClasses, animationClass)}>
           {marqueeText}
         </p>
-        <p className={cn("absolute top-0 whitespace-nowrap text-xl font-medium", textClasses, animationClass2)}>
+        <p className={cn("absolute top-0 whitespace-nowrap text-xl font-medium font-serif", textClasses, animationClass2)}>
             {marqueeText}
         </p>
       </div>
