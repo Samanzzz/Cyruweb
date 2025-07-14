@@ -1,3 +1,4 @@
+
 "use client";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,7 +72,7 @@ export function Showcase() {
                     alt={`Logo for ${startup.name}`}
                     width={600}
                     height={400}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-contain p-4"
                   />
                 </CardHeader>
                 <CardContent className="p-6 flex-1 flex flex-col">
