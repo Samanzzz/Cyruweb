@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { submitStartupInquiry } from '@/app/actions';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -33,18 +32,42 @@ export function StartupForm() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const result = await submitStartupInquiry(values);
-    if (result.success) {
-      toast({
-        title: "Submission Received!",
-        description: "Thank you for sharing your vision. We'll be in touch soon.",
+    const formData = new FormData();
+    formData.append("access_key", "318db7ff-a710-47ee-9852-d56ada295461");
+    formData.append("subject", `New Startup Inquiry from ${values.companyName}`);
+
+    Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value);
+    });
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
       });
-      form.reset();
-    } else {
-      toast({
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Submission Received!",
+          description: "Thank you for sharing your vision. We'll be in touch soon.",
+        });
+        form.reset();
+      } else {
+        console.error("Error from web3forms", data);
+        toast({
+          variant: "destructive",
+          title: "Submission Error",
+          description: data.message || "An error occurred. Please try again.",
+        });
+      }
+    } catch (error) {
+       console.error("Submission error:", error);
+       toast({
         variant: "destructive",
-        title: "Submission Error",
-        description: result.message || "An error occurred. Please try again.",
+        title: "Network Error",
+        description: "Could not submit form. Please check your connection.",
       });
     }
   };
