@@ -26,8 +26,10 @@ export function Hero() {
     },
   };
 
+  const marqueeWords = "Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor · Series A · Growth Hacking · Tech · Entrepreneurship · Exit Strategy · Pitch Deck · Due Diligence · Term Sheet · Burn Rate ·".repeat(5);
+
   return (
-    <section className="py-24 sm:py-32 lg:py-40 bg-white">
+    <section className="py-24 sm:py-32 lg:pt-40 bg-white overflow-hidden">
       <motion.div
         className="container px-4 text-left"
         variants={containerVariants}
@@ -58,6 +60,17 @@ export function Hero() {
           </Link>
         </motion.div>
       </motion.div>
+       <div className="relative mt-20 sm:mt-24 py-4">
+        <div className="absolute inset-0 bg-secondary"></div>
+        <div className="relative w-full flex overflow-hidden">
+          <p className="animate-marquee whitespace-nowrap text-xl text-secondary-foreground font-medium">
+            {marqueeWords}
+          </p>
+           <p className="absolute top-0 animate-marquee2 whitespace-nowrap text-xl text-secondary-foreground font-medium">
+             {marqueeWords}
+           </p>
+        </div>
+      </div>
     </section>
   );
 }
