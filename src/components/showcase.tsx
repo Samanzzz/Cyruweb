@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -10,34 +11,28 @@ import {
 
 const unicornStartups = [
   {
-    name: "InnovateAI",
-    description: "Revolutionizing machine learning for enterprise solutions.",
+    name: "SullDog Company",
+    description: "Specializes in elevating businesses online with bespoke web development and design services.",
     image: "https://placehold.co/600x400.png",
-    hint: "tech logo",
+    hint: "dog logo",
   },
   {
-    name: "QuantumLeap",
-    description: "Building the next generation of quantum computing hardware.",
+    name: "Cloud Impala",
+    description: "Provides data analytics solutions specifically designed for farmers and corporations to optimize their operations.",
     image: "https://placehold.co/600x400.png",
-    hint: "abstract data",
+    hint: "cloud analytics",
   },
   {
-    name: "BioSynth",
-    description: "Pioneering sustainable materials through synthetic biology.",
+    name: "Feed Slack",
+    description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
     image: "https://placehold.co/600x400.png",
-    hint: "nature technology",
+    hint: "feedback chat",
   },
   {
-    name: "NextGen Robotics",
-    description: "Automating industries with intelligent robotic systems.",
+    name: "AdverCal",
+    description: "A marketing agency that offers customized marketing strategies with the unique option of direct executive collaboration.",
     image: "https://placehold.co/600x400.png",
-    hint: "robot arm",
-  },
-  {
-    name: "HelioPower",
-    description: "Developing breakthrough solar energy capture and storage.",
-    image: "https://placehold.co/600x400.png",
-    hint: "solar panels",
+    hint: "marketing chart",
   },
 ];
 
@@ -46,9 +41,9 @@ export function Showcase() {
     <section id="showcase" className="py-16 sm:py-24">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary-foreground sm:text-4xl">Our Constellation of Unicorns</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Unicorn Startups</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            A glimpse into the future, forged by the industry-defining companies we've backed.
+            From Vision to Unicorn: Our Journey. We have a team of developers who will identify your needs and provide you with solutions for them.
           </p>
         </div>
         <Carousel
@@ -74,8 +69,9 @@ export function Showcase() {
                       />
                     </CardHeader>
                     <CardContent className="p-6 flex-1 flex flex-col">
-                        <CardTitle className="text-xl mb-2">{startup.name}</CardTitle>
-                        <p className="text-muted-foreground flex-1">{startup.description}</p>
+                        <h3 className="text-xl font-semibold mb-2">{startup.name}</h3>
+                        <p className="text-muted-foreground flex-1 mb-4">{startup.description}</p>
+                        <Button variant="outline" className="mt-auto w-full">Learn More</Button>
                     </CardContent>
                   </Card>
                 </div>
