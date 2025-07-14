@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
@@ -31,7 +32,7 @@ async function parseRss(rssText: string): Promise<Article[]> {
 async function getLatestNewsHeadlines() {
   try {
     const response = await fetch('https://techcrunch.com/feed/', {
-      next: { revalidate: 3600 } // Revalidate every hour
+      cache: 'no-store' // Fetch fresh data on every request
     });
 
     if (!response.ok) {
