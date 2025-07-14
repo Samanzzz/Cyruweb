@@ -11,39 +11,34 @@ interface Article {
   title: string;
 }
 
-// A simple, dependency-free XML parser for the TechCrunch RSS feed.
-async function parseRss(rssText: string): Promise<Article[]> {
-  const articles: Article[] = [];
-  const items = rssText.split('<item>');
-  items.shift(); // Remove the part before the first <item>
+// Fetches headlines from NewsAPI
+async function getLatestNewsHeadlines(): Promise<string[]> {
+  const apiKey = 'c136fd4db02b48ac8c6911f3edc4c506';
+  // More relevant query for a VC firm
+  const query = 'startup OR technology OR "venture capital"';
+  const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=popularity&language=en&apiKey=${apiKey}`;
 
-  for (const item of items) { 
-    const titleMatch = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/);
-    if (titleMatch) {
-      articles.push({
-        title: titleMatch[1],
-      });
-    }
-  }
-
-  return articles;
-}
-
-async function getLatestNewsHeadlines() {
   try {
-    const response = await fetch('https://techcrunch.com/feed/', {
+    const response = await fetch(url, {
       cache: 'no-store' // Fetch fresh data on every request
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch RSS feed: ${response.status}`);
+      // NewsAPI might return a 4xx or 5xx error with a JSON body
+      const errorData = await response.json();
+      throw new Error(`Failed to fetch news: ${response.status} - ${errorData.message}`);
     }
 
-    const rssText = await response.text();
-    const articles = await parseRss(rssText);
-    return articles.map(a => a.title);
+    const data = await response.json();
+
+    if (data.status !== 'ok') {
+      throw new Error(`NewsAPI returned an error: ${data.message}`);
+    }
+
+    // Extract titles from the articles
+    return data.articles.map((article: Article) => article.title);
   } catch (error) {
-    console.error("Error fetching or parsing RSS feed:", error);
+    console.error("Error fetching or parsing news from NewsAPI:", error);
     return []; // Return empty array on error
   }
 }
