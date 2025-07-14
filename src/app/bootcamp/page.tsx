@@ -1,3 +1,6 @@
+
+"use client";
+import React, { useState } from 'react';
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -5,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Code, Bot, ShieldCheck, Globe, BarChart2, Smartphone, CheckCircle } from "lucide-react";
+import { EnrollmentForm } from '@/components/enrollment-form';
 
 const bootcamps = [
   {
@@ -82,32 +86,49 @@ const bootcamps = [
 ];
 
 export default function BootcampPage() {
+  const [showEnrollmentForm, setShowEnrollmentForm] = useState(false);
+  const [selectedBootcamp, setSelectedBootcamp] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleEnrollClick = (bootcampTitle: string) => {
+    setSelectedBootcamp(bootcampTitle);
+    setShowEnrollmentForm(true);
+  };
+  
+  const handleDialogClose = (open: boolean) => {
+    if(!open) {
+      setShowEnrollmentForm(false);
+      setSelectedBootcamp("");
+    }
+    setIsDialogOpen(open);
+  }
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-1 container py-12">
-        <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">CyruTech Bootcamp</h1>
-            <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
+      <main className="flex-1 container py-12 md:py-24">
+        <div className="text-center mb-16">
+            <h1 className="text-4xl font-serif font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">CyruTech Bootcamp</h1>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
               Upskill and innovate with our expert-led tech bootcamps. Your journey into deep tech starts here.
             </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {bootcamps.map((bootcamp) => (
-              <Dialog key={bootcamp.title}>
+              <Dialog key={bootcamp.title} onOpenChange={handleDialogClose}>
                 <DialogTrigger asChild>
-                  <Card className="flex flex-col overflow-hidden border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 cursor-pointer h-full bg-card">
-                      <CardHeader>
+                  <Card className="flex flex-col overflow-hidden border-transparent shadow-none hover:bg-muted/50 transition-colors duration-300 cursor-pointer h-full bg-card group">
+                      <CardHeader className="p-6">
                           <div className="flex items-start justify-between">
-                              <div className="bg-primary p-3 rounded-full mb-4">
-                                  {bootcamp.icon}
+                              <div className="bg-primary/10 text-primary p-3 rounded-md mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                  {React.cloneElement(bootcamp.icon, { className: 'w-6 h-6' })}
                               </div>
                               <Badge variant={bootcamp.category === 'Management' ? 'destructive' : 'secondary'}>{bootcamp.category}</Badge>
                           </div>
-                          <CardTitle className="text-2xl">{bootcamp.title}</CardTitle>
+                          <CardTitle className="text-2xl font-serif">{bootcamp.title}</CardTitle>
                       </CardHeader>
-                      <CardContent className="flex-1 flex flex-col justify-between">
-                        <CardDescription className="mb-4">{bootcamp.description}</CardDescription>
+                      <CardContent className="flex-1 flex flex-col justify-between p-6 pt-0">
+                        <CardDescription className="mb-4 text-base">{bootcamp.description}</CardDescription>
                         <p className="text-xs text-muted-foreground mt-auto">{bootcamp.date}</p>
                       </CardContent>
                   </Card>
@@ -115,36 +136,43 @@ export default function BootcampPage() {
                 <DialogContent className="sm:max-w-[625px]">
                   <DialogHeader>
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="bg-primary p-3 rounded-full">
-                            {bootcamp.icon}
+                        <div className="bg-primary text-primary-foreground p-3 rounded-md">
+                             {React.cloneElement(bootcamp.icon, { className: 'w-6 h-6' })}
                         </div>
-                        <DialogTitle className="text-2xl font-bold text-foreground">{bootcamp.title}</DialogTitle>
+                        <DialogTitle className="text-3xl font-serif font-bold text-foreground">{bootcamp.title}</DialogTitle>
                     </div>
                   </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
-                        <h3 className="font-semibold text-lg mb-2">Overview</h3>
-                        <p className="text-muted-foreground">{bootcamp.details.overview}</p>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold text-lg mb-2">What You'll Learn</h3>
-                        <ul className="space-y-2">
-                            {bootcamp.details.topics.map((topic) => (
-                                <li key={topic} className="flex items-start">
-                                    <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                                    <span className="text-muted-foreground">{topic}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 className="font-semibold text-lg mb-2">Prerequisites</h3>
-                        <p className="text-muted-foreground">{bootcamp.details.prerequisites}</p>
-                    </div>
-                  </div>
-                   <div className="mt-6 text-center">
-                        <Button>Enroll Now</Button>
-                    </div>
+                  
+                  {showEnrollmentForm && selectedBootcamp === bootcamp.title ? (
+                      <EnrollmentForm bootcampName={bootcamp.title} onBack={() => setShowEnrollmentForm(false)} />
+                  ) : (
+                    <>
+                      <div className="space-y-6">
+                        <div>
+                            <h3 className="font-semibold text-xl font-serif mb-2">Overview</h3>
+                            <p className="text-muted-foreground">{bootcamp.details.overview}</p>
+                        </div>
+                        <div>
+                            <h3 className="font-semibold text-xl font-serif mb-2">What You'll Learn</h3>
+                            <ul className="space-y-2">
+                                {bootcamp.details.topics.map((topic) => (
+                                    <li key={topic} className="flex items-start">
+                                        <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                                        <span className="text-muted-foreground">{topic}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                         <div>
+                            <h3 className="font-semibold text-xl font-serif mb-2">Prerequisites</h3>
+                            <p className="text-muted-foreground">{bootcamp.details.prerequisites}</p>
+                        </div>
+                      </div>
+                       <div className="mt-8 text-center">
+                            <Button size="lg" onClick={() => handleEnrollClick(bootcamp.title)}>Enroll Now</Button>
+                        </div>
+                    </>
+                  )}
                 </DialogContent>
               </Dialog>
             ))}
