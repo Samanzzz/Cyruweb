@@ -3,12 +3,12 @@ import { Code, Megaphone, Zap, Scale } from "lucide-react";
 
 const services = [
   {
-    icon: <Zap className="w-8 h-8 text-primary" />,
+    icon: <Zap className="w-8 h-8 text-primary-foreground" />,
     title: "Venture Acceleration",
     description: "More than capital, we provide the strategic firepower to scale ideas into industry-defining titans.",
   },
   {
-    icon: <Scale className="w-8 h-8 text-primary" />,
+    icon: <Scale className="w-8 h-8 text-primary-foreground" />,
     title: "Ecosystem Forging",
     description: "Connect with a curated network of pioneers, innovators, and market leaders to build your dynasty.",
   },
@@ -19,7 +19,7 @@ export function Services() {
     <section id="services" className="py-16 sm:py-24 bg-secondary">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Catalyst Platform</h2>
+          <h2 className="text-3xl font-bold text-primary-foreground sm:text-4xl">Our Catalyst Platform</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             We are architects of growth, providing the tools and network to build empires.
           </p>

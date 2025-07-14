@@ -46,7 +46,7 @@ export function Showcase() {
     <section id="showcase" className="py-16 sm:py-24">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Constellation of Unicorns</h2>
+          <h2 className="text-3xl font-bold text-primary-foreground sm:text-4xl">Our Constellation of Unicorns</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
             A glimpse into the future, forged by the industry-defining companies we've backed.
           </p>
