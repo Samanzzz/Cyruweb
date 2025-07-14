@@ -1,148 +1,67 @@
 "use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
+import React from 'react';
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { submitInquiry } from "@/app/actions";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phone: z.string().optional(),
-  website: z.string().url({ message: "Please enter a valid URL." }).optional().or(z.literal('')),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
+import { Label } from "@/components/ui/label";
 
 export function ContactForm() {
-  const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      website: "",
-      message: "",
-    },
-  });
+  const [result, setResult] = React.useState("");
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    formData.append("access_key", "318db7ff-a710-47ee-9852-d56ada295461");
+
     try {
-      const result = await submitInquiry(values);
-      if (result.success) {
-        toast({
-          title: "Inquiry Sent!",
-          description: "Thank you for your message. We will get back to you shortly.",
-        });
-        form.reset();
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        (event.target as HTMLFormElement).reset();
       } else {
-        throw new Error(result.message || "An unknown error occurred.");
+        console.log("Error", data);
+        setResult(data.message);
       }
     } catch (error) {
-       const errorMessage = error instanceof Error ? error.message : "Failed to send inquiry.";
-       toast({
-        variant: "destructive",
-        title: "Submission Failed",
-        description: errorMessage,
-      });
+      console.error("Submission error:", error);
+      setResult("An error occurred while submitting the form.");
     }
-  }
+  };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
-              <FormControl>
-                <Input placeholder="John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="you@example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone (Optional)</FormLabel>
-              <FormControl>
-                <Input placeholder="(123) 456-7890" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="website"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Website URL (Optional)</FormLabel>
-              <FormControl>
-                <Input placeholder="https://yourcompany.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Tell us about your project or inquiry..."
-                  className="min-h-[120px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" className="w-full">
-          Send Inquiry
-        </Button>
+    <div className="space-y-4">
+      <form onSubmit={onSubmit} className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="name">Full Name*</Label>
+          <Input id="name" type="text" name="name" placeholder="Adam Gelius" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email*</Label>
+          <Input id="email" type="email" name="email" placeholder="example@yourmail.com" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="phone">Phone*</Label>
+          <Input id="phone" type="text" name="phone" placeholder="+885 1254 5211 552" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="website">Website URL (optional)</Label>
+          <Input id="website" type="text" name="website" placeholder="https://example.com" />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="message">Message*</Label>
+          <Textarea id="message" name="message" placeholder="Type your message here" className="min-h-[120px]" required />
+        </div>
+        <Button type="submit" className="w-full">Send us a Message</Button>
       </form>
-    </Form>
+      {result && <p className="text-sm text-center text-muted-foreground pt-4">{result}</p>}
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Scale } from "lucide-react";
+import { Zap, Scale, Handshake } from "lucide-react";
 
 const services = [
   {
@@ -11,6 +11,11 @@ const services = [
     icon: <Scale className="w-8 h-8 text-primary-foreground" />,
     title: "Ecosystem Forging",
     description: "Connect with a curated network of pioneers, innovators, and market leaders to build your dynasty.",
+  },
+  {
+    icon: <Handshake className="w-8 h-8 text-primary-foreground" />,
+    title: "Strategic Partnerships",
+    description: "We help you forge strategic partnerships that open new markets and create lasting value.",
   },
 ];
 
@@ -24,7 +29,7 @@ export function Services() {
             We are architects of growth, providing the tools and network to build empires.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service) => (
             <Card key={service.title} className="text-center border shadow-sm hover:shadow-xl transition-shadow duration-300 bg-card">
               <CardHeader>
