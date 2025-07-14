@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Menu } from 'lucide-react';
+import { DemoForm } from "./demo-form";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -33,9 +35,23 @@ export function Header() {
             ))}
         </nav>
 
-        <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
-          <Button>Book a Demo</Button>
-        </div>
+        <Dialog>
+            <DialogTrigger asChild>
+                <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
+                    <Button>Request a Demo</Button>
+                </div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                    <DialogTitle>Request a Demo</DialogTitle>
+                    <DialogDescription>
+                        Fill out the form below and we'll get back to you to schedule a demo.
+                    </DialogDescription>
+                </DialogHeader>
+                <DemoForm />
+            </DialogContent>
+        </Dialog>
+
 
         <div className="md:hidden flex items-center">
             <Sheet>
@@ -56,7 +72,20 @@ export function Header() {
                               {link.label}
                             </Link>
                         ))}
-                        <Button className="mt-4">Book a Demo</Button>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button className="mt-4">Request a Demo</Button>
+                            </DialogTrigger>
+                             <DialogContent className="sm:max-w-[425px]">
+                                <DialogHeader>
+                                    <DialogTitle>Request a Demo</DialogTitle>
+                                    <DialogDescription>
+                                        Fill out the form below and we'll get back to you to schedule a demo.
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <DemoForm />
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </SheetContent>
             </Sheet>
