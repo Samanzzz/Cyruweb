@@ -14,12 +14,9 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
 
   useEffect(() => {
     if (headlines && headlines.length > 0) {
-      // Create a long string of headlines separated by a visual element
       const text = headlines.join("  •  ") + "  •  ";
-      // Repeat it to ensure it's long enough for a smooth marquee effect
       setMarqueeText(text.repeat(5));
     } else {
-      // Fallback text if headlines fail to load
       const fallbackText = "Latest news headlines are currently unavailable. • Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor ·";
       setMarqueeText(fallbackText.repeat(5));
     }
@@ -34,6 +31,7 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
     : 'text-secondary-foreground';
 
   const animationClass = direction === 'left' ? 'animate-marquee' : 'animate-marquee-reverse';
+  const animationClass2 = direction === 'left' ? 'animate-marquee2' : 'animate-marquee2-reverse';
 
   return (
     <div className={cn("relative flex w-full overflow-hidden", containerClasses)}>
@@ -42,7 +40,7 @@ export function NewsMarquee({ headlines, variant = 'light', direction = 'left' }
             {marqueeText}
           </p>
       </div>
-      <div className={cn("absolute top-0 py-4 flex-shrink-0 flex items-center", animationClass)}>
+      <div className={cn("absolute top-0 py-4 flex-shrink-0 flex items-center", animationClass2)}>
           <p className={cn("whitespace-nowrap text-xl font-serif", textClasses)}>
             {marqueeText}
           </p>
