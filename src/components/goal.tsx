@@ -1,6 +1,10 @@
+
 "use client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { DemoForm } from "./demo-form";
+
 
 export function Goal() {
   const sectionVariants = {
@@ -40,7 +44,20 @@ export function Goal() {
                 By the end of their time with CyruTech Capital, our startups are positioned not just for immediate next steps, but for sustainable growth and leadership in the tech industry. We don’t just invest money; we invest in potential, turning visionary tech entrepreneurs into tomorrow’s industry leaders.
               </p>
             </div>
-             <Button size="lg" className="mt-10">Book Your Appointment Now</Button>
+             <Dialog>
+                <DialogTrigger asChild>
+                    <Button size="lg" className="mt-10">Request a Demo From Us</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>Request a Demo</DialogTitle>
+                        <DialogDescription>
+                            Fill out the form below and we'll get back to you to schedule a demo.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DemoForm />
+                </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
