@@ -20,7 +20,7 @@ export function Hero({ headlines }: HeroProps) {
       setMarqueeText(text.repeat(5));
     } else {
       // Fallback text if headlines fail to load
-      const fallbackText = "Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor · Series A · Growth Hacking · Tech · Entrepreneurship · Exit Strategy · Pitch Deck · Due Diligence · Term Sheet · Burn Rate ·";
+      const fallbackText = "Latest news headlines are currently unavailable. • Innovation · Seed Funding · Venture Capital · Scalability · Disruption · IPO · Unicorn · MVP · Product-Market Fit · Angel Investor ·";
       setMarqueeText(fallbackText.repeat(5));
     }
   }, [headlines]);
