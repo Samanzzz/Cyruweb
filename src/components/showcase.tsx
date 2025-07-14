@@ -8,26 +8,22 @@ const unicornStartups = [
   {
     name: "SullDog Company",
     description: "Specializes in elevating businesses online with bespoke web development and design services.",
-    image: "https://placehold.co/600x400.png",
-    hint: "dog logo",
+    image: "/images/sulldog-logoo.png",
   },
   {
     name: "Cloud Impala",
     description: "Provides data analytics solutions specifically designed for farmers and corporations to optimize their operations.",
-    image: "https://placehold.co/600x400.png",
-    hint: "cloud analytics",
+    image: "/images/impala-logo.png",
   },
   {
     name: "FeedSlack",
     description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
-    image: "https://placehold.co/600x400.png",
-    hint: "feedback chat",
+    image: "/images/feedslack.png",
   },
   {
     name: "AdverCal",
     description: "A marketing agency that offers customized marketing strategies with the unique option of direct executive collaboration.",
-    image: "https://placehold.co/600x400.png",
-    hint: "marketing chart",
+    image: "/images/advercal.png",
   },
 ];
 
@@ -76,7 +72,6 @@ export function Showcase() {
                     width={600}
                     height={400}
                     className="w-full h-48 object-cover"
-                    data-ai-hint={startup.hint}
                   />
                 </CardHeader>
                 <CardContent className="p-6 flex-1 flex flex-col">
