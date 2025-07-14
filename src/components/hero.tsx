@@ -27,7 +27,7 @@ export function Hero() {
   return (
     <section className="py-24 sm:py-32 lg:py-40 bg-white">
       <motion.div
-        className="container px-4 text-center"
+        className="container px-4 text-left"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -40,13 +40,13 @@ export function Hero() {
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground sm:text-xl"
+          className="mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl"
         >
           Custom Tech Solutions and Streamlined Marketing
         </motion.p>
         <motion.div
           variants={itemVariants}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 flex flex-col sm:flex-row items-center justify-start gap-4"
         >
           <Button size="lg">Ignite Your Vision</Button>
           <Button size="lg" variant="outline">Explore Our Manifesto</Button>
