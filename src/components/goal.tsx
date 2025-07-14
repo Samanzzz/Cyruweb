@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 export function Goal() {
   return (
-    <section id="goal" className="py-16 sm:py-24 bg-secondary">
+    <section id="goal" className="py-16 sm:py-24 bg-white">
       <div className="container px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-6">Our Goal</h2>
-            <div className="space-y-6 text-muted-foreground">
+        <div className="max-w-4xl mx-auto bg-card text-card-foreground rounded-lg shadow-xl p-8 sm:p-12 lg:p-16">
+          <div className="text-left">
+            <p className="text-primary font-semibold mb-2">Our Goal</p>
+            <h2 className="text-4xl font-bold text-foreground sm:text-5xl mb-8 font-serif">Get involved with CyruTech</h2>
+            <div className="space-y-6 text-muted-foreground text-lg">
               <p>
                 At CyruTech Capital, our overarching goal is to catalyze the growth and success of innovative technology startups. We engage with companies at various stages—from conceptual sparks to those with established products—aiming to propel them to new heights of development and market penetration. Our objective over a targeted three-month acceleration period is to ensure that each company not only refines its product offering but also significantly expands its user base and investment attractiveness.
               </p>
@@ -19,17 +19,7 @@ export function Goal() {
                 By the end of their time with CyruTech Capital, our startups are positioned not just for immediate next steps, but for sustainable growth and leadership in the tech industry. We don’t just invest money; we invest in potential, turning visionary tech entrepreneurs into tomorrow’s industry leaders.
               </p>
             </div>
-             <Button size="lg" className="mt-8">Book Your Appointment Now</Button>
-          </div>
-          <div className="order-1 lg:order-2">
-            <Image 
-              src="https://placehold.co/600x600.png"
-              alt="Team discussing strategy"
-              width={600}
-              height={600}
-              className="rounded-lg shadow-lg"
-              data-ai-hint="team strategy"
-            />
+             <Button size="lg" className="mt-10">Book Your Appointment Now</Button>
           </div>
         </div>
       </div>
