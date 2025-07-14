@@ -3,7 +3,7 @@ import { ContactForm } from "./contact-form";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
-const locations = ["San Diego", "New York", "Miami", "Los Angeles", "San Francisco"];
+const locations = ["San Diego", "New York", "Miami", "Los Angeles", "San Francisco", "Seattle"];
 
 export function Contact() {
   const sectionVariants = {
