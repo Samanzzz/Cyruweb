@@ -18,7 +18,7 @@ const unicornStartups = [
     hint: "cloud analytics",
   },
   {
-    name: "Feed Slack",
+    name: "FeedSlack",
     description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
     image: "https://placehold.co/600x400.png",
     hint: "feedback chat",
