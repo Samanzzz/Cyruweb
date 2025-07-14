@@ -8,22 +8,22 @@ const unicornStartups = [
   {
     name: "SullDog Company",
     description: "Specializes in elevating businesses online with bespoke web development and design services.",
-    image: "/images/sulldog-logoo.png",
+    image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/sulldog-logoo.png",
   },
   {
     name: "Cloud Impala",
     description: "Provides data analytics solutions specifically designed for farmers and corporations to optimize their operations.",
-    image: "/images/impala-logo.png",
+    image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/impala-logo.png",
   },
   {
     name: "FeedSlack",
     description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
-    image: "/images/feedslack.png",
+    image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/feedslack.png",
   },
   {
     name: "AdverCal",
     description: "A marketing agency that offers customized marketing strategies with the unique option of direct executive collaboration.",
-    image: "/images/advercal.png",
+    image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/advercal.png",
   },
 ];
 
