@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Code, Bot, ShieldCheck, Globe, BarChart2, Smartphone, CheckCircle } from "lucide-react";
 import { EnrollmentForm } from '@/components/enrollment-form';
+import { motion } from 'framer-motion';
 
 const bootcamps = [
   {
@@ -85,6 +86,33 @@ const bootcamps = [
   },
 ];
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function BootcampPage() {
   const [showEnrollmentForm, setShowEnrollmentForm] = useState(false);
   const [selectedBootcamp, setSelectedBootcamp] = useState("");
@@ -107,31 +135,45 @@ export default function BootcampPage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1 container py-12 md:py-24">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
             <h1 className="text-4xl font-serif font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">CyruTech Bootcamp</h1>
             <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
               Upskill and innovate with our expert-led tech bootcamps. Your journey into deep tech starts here.
             </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </motion.div>
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
             {bootcamps.map((bootcamp) => (
               <Dialog key={bootcamp.title} onOpenChange={handleDialogClose}>
                 <DialogTrigger asChild>
-                  <Card className="flex flex-col overflow-hidden border-transparent shadow-none hover:bg-muted/50 transition-colors duration-300 cursor-pointer h-full bg-card group">
-                      <CardHeader className="p-6">
-                          <div className="flex items-start justify-between">
-                              <div className="bg-primary/10 text-primary p-3 rounded-md mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                  {React.cloneElement(bootcamp.icon, { className: 'w-6 h-6' })}
-                              </div>
-                              <Badge variant={bootcamp.category === 'Management' ? 'destructive' : 'secondary'}>{bootcamp.category}</Badge>
-                          </div>
-                          <CardTitle className="text-2xl font-serif">{bootcamp.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex-1 flex flex-col justify-between p-6 pt-0">
-                        <CardDescription className="mb-4 text-base">{bootcamp.description}</CardDescription>
-                        <p className="text-xs text-muted-foreground mt-auto">{bootcamp.date}</p>
-                      </CardContent>
-                  </Card>
+                  <motion.div variants={itemVariants}>
+                    <Card className="flex flex-col overflow-hidden border-transparent shadow-none hover:bg-muted/50 transition-colors duration-300 cursor-pointer h-full bg-card group">
+                        <CardHeader className="p-6">
+                            <div className="flex items-start justify-between">
+                                <div className="bg-primary/10 text-primary p-3 rounded-md mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                    {React.cloneElement(bootcamp.icon, { className: 'w-6 h-6' })}
+                                </div>
+                                <Badge variant={bootcamp.category === 'Management' ? 'destructive' : 'secondary'}>{bootcamp.category}</Badge>
+                            </div>
+                            <CardTitle className="text-2xl font-serif">{bootcamp.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col justify-between p-6 pt-0">
+                          <CardDescription className="mb-4 text-base">{bootcamp.description}</CardDescription>
+                          <p className="text-xs text-muted-foreground mt-auto">{bootcamp.date}</p>
+                        </CardContent>
+                    </Card>
+                  </motion.div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[625px]">
                   <DialogHeader>
@@ -176,7 +218,7 @@ export default function BootcampPage() {
                 </DialogContent>
               </Dialog>
             ))}
-        </div>
+        </motion.div>
       </main>
       <Footer />
     </div>

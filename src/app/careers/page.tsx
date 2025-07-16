@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState } from 'react';
 import { Header } from "@/components/header";
@@ -5,8 +6,9 @@ import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { MapPin, Briefcase, Clock } from "lucide-react";
+import { MapPin, Briefcase } from "lucide-react";
 import { ApplicationForm } from "@/components/application-form";
+import { motion } from 'framer-motion';
 
 const jobOpenings = [
   {
@@ -65,6 +67,33 @@ const jobOpenings = [
   }
 ];
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const listVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<typeof jobOpenings[0] | null>(null);
 
@@ -72,29 +101,43 @@ export default function CareersPage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1 container py-12 md:py-24">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h1 className="text-4xl font-serif font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">Join Our Team</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
             We're looking for passionate innovators to help us build the future. Explore our open roles and find your next opportunity.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <motion.div 
+          className="max-w-4xl mx-auto space-y-8"
+          variants={listVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <Dialog>
             {jobOpenings.map((job) => (
               <DialogTrigger key={job.title} asChild onClick={() => setSelectedJob(job)}>
-                <Card className="cursor-pointer hover:bg-muted/50 transition-colors duration-300">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-serif">{job.title}</CardTitle>
-                    <CardDescription className="flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2 pt-2">
-                      <span className="flex items-center"><Briefcase className="w-4 h-4 mr-2" />{job.type}</span>
-                      <span className="flex items-center"><MapPin className="w-4 h-4 mr-2" />{job.location}</span>
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{job.description}</p>
-                  </CardContent>
-                </Card>
+                <motion.div variants={itemVariants}>
+                  <Card className="cursor-pointer hover:bg-muted/50 transition-colors duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-2xl font-serif">{job.title}</CardTitle>
+                      <CardDescription className="flex flex-col sm:flex-row sm:items-center gap-x-4 gap-y-2 pt-2">
+                        <span className="flex items-center"><Briefcase className="w-4 h-4 mr-2" />{job.type}</span>
+                        <span className="flex items-center"><MapPin className="w-4 h-4 mr-2" />{job.location}</span>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{job.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </DialogTrigger>
             ))}
             {selectedJob && (
@@ -127,7 +170,7 @@ export default function CareersPage() {
               </DialogContent>
             )}
           </Dialog>
-        </div>
+        </motion.div>
 
       </main>
       <Footer />
