@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description: "Pioneering Venture Capital for Groundbreaking Tech Innovations",
   icons: {
     icon: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 

@@ -12,6 +12,7 @@ const unicornStartups = [
     name: "SullDog Company",
     description: "Specializes in elevating businesses online with bespoke web development and design services.",
     image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/sulldog-logoo.png",
+    hint: "dog logo",
     details: {
       founded: 2021,
       overview: "SullDog Company is a premier digital agency that crafts beautiful, high-performance websites and web applications. They focus on creating a powerful online presence for their clients through a combination of cutting-edge design and robust development.",
@@ -27,6 +28,7 @@ const unicornStartups = [
     name: "Cloud Impala",
     description: "Provides data analytics solutions specifically designed for farmers and corporations to optimize their operations.",
     image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/impala-logo.png",
+    hint: "impala logo",
     details: {
       founded: 2020,
       overview: "Cloud Impala is at the forefront of agricultural technology (AgriTech). Their platform ingests vast amounts of data—from weather patterns to crop yields—and provides actionable insights for farmers and large agricultural corporations to increase efficiency and profitability.",
@@ -42,6 +44,7 @@ const unicornStartups = [
     name: "FeedSlack",
     description: "Delivers an advanced feedback system aimed at refining customer interactions for businesses online.",
     image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/feedslack.png",
+    hint: "message bubble",
     details: {
       founded: 2022,
       overview: "FeedSlack offers a comprehensive suite of tools for collecting, analyzing, and acting on customer feedback. By integrating seamlessly with existing platforms, it helps businesses understand customer sentiment and improve their products and services.",
@@ -57,6 +60,7 @@ const unicornStartups = [
     name: "AdverCal",
     description: "A marketing agency that offers customized marketing strategies with the unique option of direct executive collaboration.",
     image: "https://raw.githubusercontent.com/Samanzzz/Cyruweb/master/assets/images/logo/advercal.png",
+    hint: "calendar logo",
     details: {
       founded: 2019,
       overview: "AdverCal redefines the agency model by providing bespoke marketing strategies coupled with unparalleled access to senior marketing executives. This unique approach ensures that clients receive expert guidance and hands-on strategy execution.",
@@ -115,7 +119,8 @@ export function Showcase() {
                       alt={`Logo for ${startup.name}`}
                       width={600}
                       height={400}
-                      className="w-full h-48 object-contain p-4"
+                      className="w-full h-48 object-cover"
+                      data-ai-hint={startup.hint}
                     />
                   </CardHeader>
                   <CardContent className="p-6 flex-1 flex flex-col">
@@ -135,6 +140,7 @@ export function Showcase() {
                             width={100}
                             height={100}
                             className="w-24 h-24 object-contain p-2 border rounded-md"
+                            data-ai-hint={startup.hint}
                           />
                         <div className="flex-1">
                           <DialogTitle className="text-3xl font-serif font-bold text-foreground">{startup.name}</DialogTitle>
