@@ -113,13 +113,13 @@ export function Showcase() {
              <motion.div key={index} variants={itemVariants} className="h-full">
                <Dialog>
                 <Card className="overflow-hidden h-full flex flex-col bg-card border rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                  <CardHeader className="p-0">
+                  <CardHeader className="p-0 bg-muted/50">
                     <Image
                       src={startup.image}
                       alt={`Logo for ${startup.name}`}
                       width={600}
                       height={400}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-contain p-4"
                       data-ai-hint={startup.hint}
                     />
                   </CardHeader>
