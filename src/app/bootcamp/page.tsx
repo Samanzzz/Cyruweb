@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Code, Bot, ShieldCheck, Globe, BarChart2, Smartphone, CheckCircle } from "lucide-react";
 import { EnrollmentForm } from '@/components/enrollment-form';
 import { motion } from 'framer-motion';
+import { SUMMER_LIVE } from '@/app/summer-2027/gate';
 
 const bootcamps = [
   {
@@ -146,9 +147,9 @@ export default function BootcampPage() {
             <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
               Upskill and innovate with our expert-led tech bootcamps. Your journey into deep tech starts here.
             </p>
-            <a href="/summer-2027" className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-5 py-2 text-sm font-medium text-primary hover:bg-primary/10 transition-colors">
+            {SUMMER_LIVE && <a href="/summer-2027" className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-5 py-2 text-sm font-medium text-primary hover:bg-primary/10 transition-colors">
               New: Summer Tech Academy 2027 for grades 6 to 12 →
-            </a>
+            </a>}
         </motion.div>
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

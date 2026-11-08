@@ -5,12 +5,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Menu } from 'lucide-react';
 import { DemoForm } from "./demo-form";
+import { SUMMER_LIVE } from "@/app/summer-2027/gate";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/ignite", label: "Ignite" },
   { href: "/bootcamp", label: "Bootcamp" },
-  { href: "/summer-2027", label: "Summer 2027" },
+  ...(SUMMER_LIVE ? [{ href: "/summer-2027", label: "Summer 2027" }] : []),
   { href: "/unicorns", label: "Unicorns" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },

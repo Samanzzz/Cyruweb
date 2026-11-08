@@ -7,6 +7,8 @@ const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 const nextConfig: NextConfig = {
   output: 'export',
+  // Summer 2027 page gate (src/app/summer-2027/gate.ts). Always defined, so the build can drop the gated page.
+  env: { SUMMER_2027: process.env.SUMMER_2027 === 'live' ? 'live' : 'gated' },
   // IMPORTANT: Replace `my-repo-name` with your repository name below.
   basePath: isGithubActions ? `/${repoName}` : '',
   assetPrefix: isGithubActions ? `/${repoName}/` : '',
