@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/ignite", label: "Ignite" },
   { href: "/bootcamp", label: "Bootcamp" },
+  { href: "/summer-2027", label: "Summer 2027" },
   { href: "/unicorns", label: "Unicorns" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
