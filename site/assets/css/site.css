@@ -1420,7 +1420,7 @@ html.intro .hero, html.intro .page-hero { --intro-delay: 1.15s; }
 /* --- News strip: background wire + latest bar --- */
 .newswire {
   position: absolute; inset: -10% -20%; z-index: -1; pointer-events: none;
-  display: flex; flex-direction: column; justify-content: center; gap: clamp(8px, 2vw, 28px);
+  display: flex; flex-direction: column; justify-content: center; gap: clamp(10px, 2.2vw, 30px);
   transform: rotate(-6deg);
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%);
@@ -1429,16 +1429,16 @@ html.intro .hero, html.intro .page-hero { --intro-delay: 1.15s; }
 .nw-row { overflow: hidden; white-space: nowrap; }
 .nw-track { display: flex; width: max-content; align-items: center; }
 .nw-item {
-  font-size: clamp(3rem, 9vw, 8.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05;
-  color: transparent; -webkit-text-stroke: 1px rgba(62, 224, 122, 0.24);
+  font-size: clamp(1.6rem, 4vw, 3.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
+  color: transparent; -webkit-text-stroke: 1px rgba(62, 224, 122, 0.2);
   padding-inline: 0.35em;
 }
-.nw-row--1 .nw-item { font-family: var(--font-serif); font-style: italic; font-weight: 400; -webkit-text-stroke: 0; color: rgba(245, 243, 238, 0.06); }
+.nw-row--1 .nw-item { font-family: var(--font-serif); font-style: italic; font-weight: 400; -webkit-text-stroke: 0; color: rgba(245, 243, 238, 0.05); }
 .nw-sep { color: rgba(62, 224, 122, 0.18); font-size: clamp(1rem, 2vw, 1.8rem); }
 @media (prefers-reduced-motion: no-preference) {
-  .nw-row--0 .nw-track { animation: marquee 90s linear infinite; }
-  .nw-row--1 .nw-track { animation: marquee 120s linear infinite reverse; }
-  .nw-row--2 .nw-track { animation: marquee 105s linear infinite; }
+  .nw-track { animation: marquee 110s linear infinite; }
+  .nw-row:nth-child(even) .nw-track { animation-direction: reverse; animation-duration: 135s; }
+  .nw-row:nth-child(3) .nw-track { animation-duration: 95s; }
 }
 
 .newsbar {
@@ -1447,17 +1447,17 @@ html.intro .hero, html.intro .page-hero { --intro-delay: 1.15s; }
   background: linear-gradient(90deg, rgba(29, 185, 84, 0.08), transparent 60%);
 }
 .hero { padding-bottom: 0; }
-.newsbar-inner { display: flex; align-items: center; gap: clamp(14px, 2vw, 24px); min-height: 56px; }
+.newsbar-inner { display: flex; align-items: center; gap: clamp(12px, 1.6vw, 20px); min-height: 44px; }
 .newsbar-label {
   flex: none; display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright);
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright);
 }
 .newsbar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 0 0 rgba(62, 224, 122, 0.6); }
 @media (prefers-reduced-motion: no-preference) {
   .newsbar-dot { animation: nb-ping 2s ease-out infinite; }
 }
 @keyframes nb-ping { 70%, 100% { box-shadow: 0 0 0 8px rgba(62, 224, 122, 0); } }
-.newsbar-view { position: relative; flex: 1; min-width: 0; height: 56px; overflow: hidden; }
+.newsbar-view { position: relative; flex: 1; min-width: 0; height: 44px; overflow: hidden; }
 .newsbar-list { list-style: none; margin: 0; padding: 0; }
 .newsbar-item {
   position: absolute; inset: 0; display: flex; align-items: center; gap: 12px; min-width: 0;
@@ -1467,11 +1467,11 @@ html.intro .hero, html.intro .page-hero { --intro-delay: 1.15s; }
 .newsbar-item.is-on { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
 .newsbar-item.is-out { opacity: 0; transform: translateY(-100%); visibility: visible; }
 .newsbar-tag {
-  flex: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--on-ink-muted); border: 1px solid var(--line-ink); border-radius: 999px; padding: 3px 9px;
+  flex: none; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--on-ink-muted); border: 1px solid var(--line-ink); border-radius: 999px; padding: 2px 8px;
 }
 .newsbar-item a {
-  color: var(--on-ink); text-decoration: none; font-size: 0.95rem; min-width: 0;
+  color: var(--on-ink); text-decoration: none; font-size: 0.84rem; min-width: 0;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s;
 }
