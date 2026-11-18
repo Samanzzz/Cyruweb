@@ -444,7 +444,7 @@
 
   /* Topic from ?topic= */
   var topicParam = new URLSearchParams(window.location.search).get("topic");
-  var topicMap = { consulting: "Consulting", investment: "Investment / fundraising", sulldog: "Website or app (SullDog)", bootcamp: "Bootcamp" };
+  var topicMap = { consulting: "Consulting", investment: "Investment / fundraising", sulldog: "Website or app (SullDog)", marketing: "Marketing (AdverCal)", data: "Data & analytics (Cloud Impala)", bootcamp: "Bootcamp" };
   if (topicParam && topicMap[topicParam] && form.elements.topic) form.elements.topic.value = topicMap[topicParam];
 
   /* Phone becomes required for phone calls */
