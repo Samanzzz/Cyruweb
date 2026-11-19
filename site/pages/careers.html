@@ -105,87 +105,76 @@
 
     <section class="section section--paper-2" id="apply" aria-labelledby="apply-title">
       <div class="wrap">
-        <div class="section-head section-head--split">
-          <div class="stack">
-            <span class="eyebrow" data-reveal>Apply</span>
-            <h2 class="h2" id="apply-title" data-split>Internship <span class="serif accent">application.</span></h2>
-          </div>
-          <p class="lead" data-reveal style="--d:.1s">Three quick steps &mdash; about two minutes. We&rsquo;ll reach out when a spot opens up.</p>
+        <div class="cv-head">
+          <span class="eyebrow" data-reveal>Apply</span>
+          <h2 class="h2" id="apply-title" data-split>Internship <span class="serif accent">application.</span></h2>
+          <p class="lead" data-reveal style="--d:.1s">Fill in the blanks below &mdash; it takes about a minute.</p>
         </div>
-        <div class="ap" data-ap data-stage="role">
-          <aside class="ap-side" aria-hidden="true">
-            <div class="ap-pass">
-              <div class="ap-pass-top"><span class="ap-pass-logo">Cy</span><span class="ap-pass-kind">Intern application</span><span class="ap-pass-status" data-ap-status>Draft</span></div>
-              <div class="ap-pass-name" data-ap-out="name" data-empty="Your name">Your name</div>
-              <div class="ap-pass-row"><span class="ap-pass-label">Roles</span><span class="ap-pass-tags" data-ap-out="roles"><span class="ap-pass-tag is-empty">Pick a role</span></span></div>
-              <div class="ap-pass-grid">
-                <div><span class="ap-pass-label">Email</span><span class="ap-pass-val" data-ap-out="email" data-empty="&mdash;">&mdash;</span></div>
-                <div><span class="ap-pass-label">Phone</span><span class="ap-pass-val" data-ap-out="phone" data-empty="&mdash;">&mdash;</span></div>
-                <div><span class="ap-pass-label">R&eacute;sum&eacute;</span><span class="ap-pass-val" data-ap-out="resume" data-empty="&mdash;">&mdash;</span></div>
-                <div><span class="ap-pass-label">Ref</span><span class="ap-pass-val" data-ap-out="ref">CT-&middot;&middot;&middot;&middot;</span></div>
-              </div>
-              <div class="ap-pass-meter"><span data-ap-meter></span></div>
-              <div class="ap-pass-code"></div>
-            </div>
-          </aside>
-          <div class="ap-main">
-            <ol class="bk-progress ap-progress">
-              <li data-p="role"><span>1</span>Role</li>
-              <li data-p="you"><span>2</span>About you</li>
-              <li data-p="send"><span>3</span>Submit</li>
-            </ol>
-            <form class="ap-form" action="https://api.web3forms.com/submit" method="post" data-ap-form>
-              <input type="hidden" name="access_key" value="318db7ff-a710-47ee-9852-d56ada295461" />
-              <input type="hidden" name="subject" value="Internship application (CyruTech website)" />
-              <div class="ap-hp" aria-hidden="true"><label for="a-site">Leave this empty</label><input type="text" id="a-site" name="company_site" tabindex="-1" autocomplete="off" /></div>
+        <form class="cv" action="https://api.web3forms.com/submit" method="post" data-cv>
+          <input type="hidden" name="access_key" value="318db7ff-a710-47ee-9852-d56ada295461" />
+          <input type="hidden" name="subject" value="Internship application (CyruTech website)" />
+          <div class="cv-hp" aria-hidden="true"><label for="a-site">Leave this empty</label><input type="text" id="a-site" name="company_site" tabindex="-1" autocomplete="off" /></div>
 
-              <fieldset class="ap-step" data-ap-step="role">
-                <legend class="ap-legend" tabindex="-1">Which roles fit you?</legend>
-                <p class="ap-hint">Pick every area you&rsquo;re interested in and have some experience with.</p>
-                <div class="ap-roles">
-                  <label class="ap-role"><input type="checkbox" name="positions[]" value="Web Development" data-ap-role /><span class="ap-role-box"><span class="ap-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9 6.5h.01M9 13l-2 2 2 2M15 13l2 2-2 2"/></svg></span><span class="ap-role-text"><span class="ap-role-name">Web Development</span><span class="ap-role-desc">Sites and web apps with HTML, CSS, JavaScript and modern frameworks.</span></span><span class="ap-role-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span></label>
-                  <label class="ap-role"><input type="checkbox" name="positions[]" value="Software Development" data-ap-role /><span class="ap-role-box"><span class="ap-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span class="ap-role-text"><span class="ap-role-name">Software Development</span><span class="ap-role-desc">Back ends, tools and product features across our ventures.</span></span><span class="ap-role-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span></label>
-                  <label class="ap-role"><input type="checkbox" name="positions[]" value="Product Management" data-ap-role /><span class="ap-role-box"><span class="ap-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M5.5 8h1M11.5 8h1M17.5 8h1M11.5 12h1"/></svg></span><span class="ap-role-text"><span class="ap-role-name">Product Management</span><span class="ap-role-desc">Plan, prioritize and ship alongside Agile teams.</span></span><span class="ap-role-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span></label>
-                  <label class="ap-role"><input type="checkbox" name="positions[]" value="Marketing and Sales" data-ap-role /><span class="ap-role-box"><span class="ap-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1Z"/><path d="M17 8.5a5 5 0 0 1 0 7M7 14l1.5 5.5h2.5L10 15"/></svg></span><span class="ap-role-text"><span class="ap-role-name">Marketing and Sales</span><span class="ap-role-desc">Campaigns, content and growth for our portfolio companies.</span></span><span class="ap-role-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span></label>
-                  <label class="ap-role"><input type="checkbox" name="positions[]" value="UI/UX Design" data-ap-role /><span class="ap-role-box"><span class="ap-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span><span class="ap-role-text"><span class="ap-role-name">UI/UX Design</span><span class="ap-role-desc">Research, flows and interfaces people enjoy using.</span></span><span class="ap-role-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span></label>
-                </div>
-                <p class="field-error" id="a-roles-error"></p>
-                <div class="ap-nav"><span></span><button class="btn btn--dark" type="button" data-ap-next>Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-              </fieldset>
+          <p class="cv-line">
+            <span>Hi, I&rsquo;m</span>
+            <label class="sr-only" for="a-name">Your full name</label>
+            <input class="cv-in cv-in--name" id="a-name" name="name" type="text" autocomplete="name" required placeholder="your full name" aria-describedby="a-name-error" />
+          </p>
+          <p class="cv-error" id="a-name-error"></p>
 
-              <fieldset class="ap-step" data-ap-step="you">
-                <legend class="ap-legend" tabindex="-1">Tell us about you</legend>
-                <div class="form-row">
-                  <div class="field"><label for="a-name">Full name</label><input id="a-name" name="name" type="text" autocomplete="name" required aria-describedby="a-name-error" placeholder="First and last name" /><p class="field-error" id="a-name-error"></p></div>
-                  <div class="field"><label for="a-email">School email</label><input id="a-email" name="email" type="email" autocomplete="email" required aria-describedby="a-email-error" placeholder="you@school.edu" /><p class="field-error" id="a-email-error"></p></div>
-                </div>
-                <div class="field"><label for="a-phone">Phone number</label><input id="a-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="a-phone-error" placeholder="(555) 123-4567" /><p class="field-error" id="a-phone-error"></p></div>
-                <div class="field"><label for="a-resume">Link to your r&eacute;sum&eacute; or cover letter</label><input id="a-resume" name="resume" type="url" inputmode="url" required aria-describedby="a-resume-hint a-resume-error" placeholder="drive.google.com/&hellip; or linkedin.com/in/&hellip;" /><p class="ap-hint" id="a-resume-hint">Google Drive, Dropbox, LinkedIn or a portfolio &mdash; make sure the link is viewable.</p><p class="field-error" id="a-resume-error"></p></div>
-                <div class="ap-nav"><button class="btn btn--outline" type="button" data-ap-back>Back</button><button class="btn btn--dark" type="button" data-ap-next>Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-              </fieldset>
-
-              <fieldset class="ap-step" data-ap-step="send">
-                <legend class="ap-legend" tabindex="-1">Almost there</legend>
-                <div class="field"><label for="a-questions">Questions for the recruiter <span class="opt">(optional)</span></label><textarea id="a-questions" name="questions" rows="4" placeholder="Anything you&rsquo;d like to ask us?"></textarea></div>
-                <label class="ap-ack"><input type="checkbox" name="acknowledgement" value="I certify" required aria-describedby="a-ack-error" id="a-ack" /><span class="ap-ack-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="ap-ack-text"><strong>I certify.</strong> I understand that the internship positions at CyruTech are offered on an unpaid basis. I acknowledge and accept the conditions of the internship as outlined. My decision to apply is based on my eagerness to gain valuable experience and insights within the industry, and I am committed to contributing positively to the team and projects at CyruTech.</span></label>
-                <p class="field-error" id="a-ack-error"></p>
-                <p class="form-status" role="status" aria-live="polite" data-ap-msg></p>
-                <div class="ap-nav"><button class="btn btn--outline" type="button" data-ap-back>Back</button><button class="btn btn--dark" type="submit" data-ap-submit><span data-ap-submit-label>Submit application</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-              </fieldset>
-            </form>
-
-            <div class="ap-done bk-done" data-ap-step="done" hidden>
-              <div class="bk-confetti" data-ap-confetti aria-hidden="true"></div>
-              <svg class="bk-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="m15 27 7.5 7.5L37 19"/></svg>
-              <h3 class="bk-done-title" tabindex="-1" data-ap-done-title>Application received.</h3>
-              <p class="bk-done-text">Thanks, <strong data-ap-done-name></strong>. We&rsquo;ve got your application for <strong data-ap-done-roles></strong> and will reach out at <strong data-ap-done-email></strong> when a spot opens up.</p>
-              <ul class="ap-next" role="list">
-                <li><span>1</span><span class="ap-next-text">We review every application ourselves.</span></li>
-                <li><span>2</span><span class="ap-next-text">If there&rsquo;s a fit, we&rsquo;ll email you to set up a conversation.</span></li>
-                <li><span>3</span><span class="ap-next-text">Questions in the meantime? Write to <a href="mailto:team@cyrutech.com">team@cyrutech.com</a>.</span></li>
-              </ul>
-            </div>
+          <div class="cv-line cv-line--roles" role="group" aria-labelledby="a-roles-label" aria-describedby="a-roles-error">
+            <span id="a-roles-label">and I&rsquo;d love to work on</span>
+            <span class="cv-roles">
+              <label class="cv-chip"><input type="checkbox" name="positions[]" value="Web Development" data-cv-role /><span>Web Development</span></label>
+              <label class="cv-chip"><input type="checkbox" name="positions[]" value="Software Development" data-cv-role /><span>Software Development</span></label>
+              <label class="cv-chip"><input type="checkbox" name="positions[]" value="Product Management" data-cv-role /><span>Product Management</span></label>
+              <label class="cv-chip"><input type="checkbox" name="positions[]" value="Marketing and Sales" data-cv-role /><span>Marketing and Sales</span></label>
+              <label class="cv-chip"><input type="checkbox" name="positions[]" value="UI/UX Design" data-cv-role /><span>UI/UX Design</span></label>
+            </span>
           </div>
+          <p class="cv-error" id="a-roles-error"></p>
+
+          <p class="cv-line">
+            <span>You can reach me at</span>
+            <label class="sr-only" for="a-email">School email</label>
+            <input class="cv-in cv-in--email" id="a-email" name="email" type="email" autocomplete="email" required placeholder="school email" aria-describedby="a-email-error" />
+            <span>or</span>
+            <label class="sr-only" for="a-phone">Phone number</label>
+            <input class="cv-in cv-in--phone" id="a-phone" name="phone" type="tel" autocomplete="tel" required placeholder="phone number" aria-describedby="a-phone-error" />
+          </p>
+          <p class="cv-error" id="a-email-error"></p>
+          <p class="cv-error" id="a-phone-error"></p>
+
+          <p class="cv-line">
+            <span>My r&eacute;sum&eacute; is at</span>
+            <label class="sr-only" for="a-resume">Link to your r&eacute;sum&eacute; or cover letter</label>
+            <input class="cv-in cv-in--url" id="a-resume" name="resume" type="url" inputmode="url" required placeholder="link to r&eacute;sum&eacute; or cover letter" aria-describedby="a-resume-hint a-resume-error" />
+          </p>
+          <p class="cv-note" id="a-resume-hint">Google Drive, Dropbox, LinkedIn or a portfolio &mdash; make sure the link is viewable.</p>
+          <p class="cv-error" id="a-resume-error"></p>
+
+          <p class="cv-line cv-line--soft">
+            <span>One question for you:</span>
+            <label class="sr-only" for="a-questions">Questions for the recruiter (optional)</label>
+            <input class="cv-in cv-in--q" id="a-questions" name="questions" type="text" placeholder="optional" />
+          </p>
+
+          <div class="cv-foot">
+            <label class="cv-ack" for="a-ack">
+              <input type="checkbox" id="a-ack" name="acknowledgement" value="I certify" required aria-describedby="a-ack-error" />
+              <span class="cv-ack-text">I understand the internship is <strong>unpaid</strong>, and I&rsquo;m applying to gain hands-on experience and contribute to the team.</span>
+            </label>
+            <details class="cv-terms"><summary>Read the full statement</summary><p>I understand that the internship positions at CyruTech are offered on an unpaid basis. I acknowledge and accept the conditions of the internship as outlined. My decision to apply is based on my eagerness to gain valuable experience and insights within the industry, and I am committed to contributing positively to the team and projects at CyruTech.</p></details>
+            <p class="cv-error" id="a-ack-error"></p>
+            <p class="form-status" role="status" aria-live="polite" data-cv-msg></p>
+            <button class="btn btn--dark cv-send" type="submit" data-cv-submit><span data-cv-label>Send application</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </form>
+
+        <div class="cv-done" data-cv-done hidden>
+          <svg class="bk-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="m15 27 7.5 7.5L37 19"/></svg>
+          <h3 class="cv-done-title" tabindex="-1" data-cv-done-title>Thanks, <span data-cv-done-name></span>. We&rsquo;ve got it.</h3>
+          <p class="cv-done-text">Your application for <strong data-cv-done-roles></strong> is with our team. We review every application ourselves and will reach out at <strong data-cv-done-email></strong> when a spot opens up. Questions? Write to <a href="mailto:team@cyrutech.com">team@cyrutech.com</a>.</p>
         </div>
       </div>
     </section>
